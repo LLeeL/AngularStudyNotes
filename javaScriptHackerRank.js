@@ -157,7 +157,6 @@ function Day4(){
   }
 
   function Person(initialAge) {
-      var age;
       // Add some more code to run some checks on initialAge
       if ( initialAge >= 0 ){
           this.age = initialAge;
@@ -201,3 +200,38 @@ function Day4(){
   }// for i
 
 }//function Day4
+
+// a variable declared with var is defined throughout the program as compared to let.
+//var is function scoped and let is block scoped.
+function Day5(){
+  'use strict';
+
+  process.stdin.resume();
+  process.stdin.setEncoding('utf-8');
+  
+  let inputString = '';
+  let currentLine = 0;
+  
+  process.stdin.on('data', inputStdin => {
+      inputString += inputStdin;
+  });
+  
+  process.stdin.on('end', _ => {
+      inputString = inputString.replace(/\s*$/, '')
+          .split('\n')
+          .map(str => str.replace(/\s*$/, ''));
+  
+      main();
+  });
+  
+  function readLine() {
+      return inputString[currentLine++];
+  }
+
+  function main() {
+      const n = parseInt(readLine(), 10);
+      for (let i = 1; i <= 10; i++){
+          console.log(n + ' x '+ i +' = ' + (n * i));
+      }
+  }
+}//Day 5
