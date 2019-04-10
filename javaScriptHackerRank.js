@@ -135,6 +135,7 @@ function Day3(){
   }//main()
 }
 
+//condition
 function Day4(){
   process.stdin.resume();
   process.stdin.setEncoding('ascii');
@@ -236,6 +237,7 @@ function Day5(){
   }
 }//Day 5
 
+//teneary operator
 function Day6(){
   function processData(input) {
       //Enter your code here
@@ -261,3 +263,40 @@ function Day6(){
     processData(_input);
   });
 }//Day6
+
+//Array and .join()
+function Day7(){
+  'use strict';
+
+  process.stdin.resume();
+  process.stdin.setEncoding('utf-8');
+  
+  let inputString = '';
+  let currentLine = 0;
+  
+  process.stdin.on('data', inputStdin => {
+      inputString += inputStdin;
+  });
+  
+  process.stdin.on('end', _ => {
+      inputString = inputString.replace(/\s*$/, '')
+          .split('\n')
+          .map(str => str.replace(/\s*$/, ''));
+  
+      main();
+  });
+  
+  function readLine() {
+      return inputString[currentLine++];
+  }
+  
+  
+  
+  function main() {
+      const n = parseInt(readLine(), 10);
+      const arr = readLine().split(' ').map(arrTemp => parseInt(arrTemp, 10));
+  
+      console.log(arr.reverse().join(' '));
+  }
+
+}//Day 7
