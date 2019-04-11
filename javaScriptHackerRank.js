@@ -300,3 +300,38 @@ function Day7(){
   }
 
 }//Day 7
+
+// Key-Value pair mappings using a Map or Dictionary data structure. 
+function Day8(){
+  function processData(input) {
+      var tempArray = input.split("\n");
+      var entriesLength = tempArray.shift(); 
+      var queries = tempArray.splice(entriesLength);
+
+      for (var i = 0; i < entriesLength; i++) {
+          tempArray[i] = tempArray[i].split(" ");
+      }
+
+      var phoneBookMap = new Map(tempArray);
+
+      for (var i = 0; i < queries.length; i++) {
+          if (phoneBookMap.has(queries[i])) { 
+              console.log(queries[i] + "=" + phoneBookMap.get(queries[i]));
+          } else {
+              console.log("Not found");
+          }
+      }
+  } 
+
+  process.stdin.resume();
+  process.stdin.setEncoding("ascii");
+  _input = "";
+  process.stdin.on("data", function (input) {
+      _input += input;
+  });
+
+  process.stdin.on("end", function () {
+    processData(_input);
+  });
+
+}//Day 8
