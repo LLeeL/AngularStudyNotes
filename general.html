@@ -72,3 +72,36 @@ An Array or other iterable object whose elements are key-value pairs (arrays wit
 e.g. [[ 1, 'one' ],[ 2, 'two' ]]). Each key-value pair is added to the new Map; 
 null values are treated as undefined.
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+
+//190413
+The rest parameter syntax allows us to represent an indefinite number of arguments as an array.
+    function sum(...theArgs) {
+        return theArgs.reduce((previous, current) => {
+        return previous + current;
+        });
+    }
+    
+    console.log(sum(1, 2, 3));
+    // expected output: 6
+    
+    console.log(sum(1, 2, 3, 4));
+    // expected output: 10
+    ex:
+    function f(a, b, ...theArgs) {
+        // ...
+      }
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters
+
+The reduce() method executes a reducer function (that you provide) on each member of the array resulting in a single output value.
+    const array1 = [1, 2, 3, 4];
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+    // 1 + 2 + 3 + 4
+    console.log(array1.reduce(reducer));
+    // expected output: 10
+
+    // 5 + 1 + 2 + 3 + 4
+    console.log(array1.reduce(reducer, 5));
+    // expected output: 15
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+
